@@ -7,12 +7,23 @@ import com.manjunath.repository.SpeakerRepository;
 import java.util.List;
 
 public class SpeakerServiceImpl implements SpeakerService {
-    // hard coded makes code brittle have to change and rebuild application
-    // when another implementation of the repository is available whereas if it
-    // was a configuration we could just replace it
-    private SpeakerRepository speakerRepository = new HibernateSpeakerRepositoryImpl();
 
+    private SpeakerRepository repository;
+
+    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
+        repository = speakerRepository;
+    }
+
+    // empty constructor for setter injection
+    public SpeakerServiceImpl() {
+
+    }
     public List<Speaker> findAll() {
-        return speakerRepository.findAll();
+        return repository.findAll();
+    }
+
+    // using setter injection
+    public void setSpeakerRepository(SpeakerRepository speakerRepository) {
+        this.repository = speakerRepository;
     }
 }
