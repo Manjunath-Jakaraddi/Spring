@@ -13,7 +13,10 @@ public class Application {
 
         // using the beans with setter and constructor injection
         SpeakerService speakerService = appContext.getBean("speakerService", SpeakerService.class);
-
+        System.out.println(speakerService);
         System.out.println(speakerService.findAll().get(0).getFirstName());
+
+        SpeakerService speakerService2 = appContext.getBean("speakerService", SpeakerService.class);
+        System.out.println(speakerService2);
     }
 }
