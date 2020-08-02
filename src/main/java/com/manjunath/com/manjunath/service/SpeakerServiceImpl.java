@@ -4,13 +4,19 @@ import com.manjunath.model.Speaker;
 import com.manjunath.repository.HibernateSpeakerRepositoryImpl;
 import com.manjunath.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("speakerService")
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 public class SpeakerServiceImpl implements SpeakerService {
 
     private SpeakerRepository repository;
 
+    @Autowired
     public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
         repository = speakerRepository;
         System.out.println("SpeakerServiceImpl repository constructor");
@@ -25,7 +31,7 @@ public class SpeakerServiceImpl implements SpeakerService {
     }
 
     // using setter injection
-    @Autowired
+    // @Autowired
     public void setSpeakerRepository(SpeakerRepository speakerRepository) {
         this.repository = speakerRepository;
         System.out.println("SpeakerServiceImpl setter");

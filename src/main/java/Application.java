@@ -18,5 +18,13 @@ public class Application {
 
         SpeakerService speakerService2 = appContext.getBean("speakerService", SpeakerService.class);
         System.out.println(speakerService2);
+
+        /**
+         * Stererotypes:- same as beans but for other types of special things like service and repositories
+         * 1. Component
+         * 2. Repository
+         * 3. Service
+         * 4. Controller:- realated to WebResource file not covered here
+         */
     }
 }
