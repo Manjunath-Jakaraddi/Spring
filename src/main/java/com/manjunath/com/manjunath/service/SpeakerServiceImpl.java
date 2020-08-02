@@ -14,6 +14,7 @@ import java.util.List;
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 public class SpeakerServiceImpl implements SpeakerService {
 
+    // @Autowired reflection based dependency injection not recommended
     private SpeakerRepository repository;
 
     @Autowired
